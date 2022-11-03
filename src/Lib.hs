@@ -32,7 +32,7 @@ wolfram n = concatB "" . map (concatB "") . chunksOf n
     concatB str (x:xs) = concatB (str ++ "," ++ x) xs
 
 matrixShow :: Int -> [String] -> String
-matrixShow n matrix = (concat "\n" $ map (concat " " . map (\(offset, x) -> addSpace x offset) . zip offsets) chunks)
+matrixShow n matrix = concat "\n" $ map (concat " " . map (\(offset, x) -> addSpace x offset) . zip offsets) chunks
   where
     addSpace s n = (take (n - (length s)) $ repeat ' ') ++ s
     chunks = chunksOf n matrix
